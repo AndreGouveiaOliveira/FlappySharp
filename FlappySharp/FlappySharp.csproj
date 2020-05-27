@@ -54,6 +54,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sprite.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -65,6 +68,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -78,6 +82,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Falppy 1-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrière plan-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Terrain-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tube-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Falppy 1-11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Falppy_1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
