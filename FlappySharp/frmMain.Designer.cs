@@ -390,6 +390,7 @@
             this.btnSupr.TabIndex = 20;
             this.btnSupr.Text = "Supprimer";
             this.btnSupr.UseVisualStyleBackColor = true;
+            this.btnSupr.Click += new System.EventHandler(this.btnSupr_Click);
             // 
             // nudRotation
             // 
@@ -475,7 +476,9 @@
             // 
             // tmp
             // 
+            this.tmp.Enabled = true;
             this.tmp.Interval = 1000;
+            this.tmp.Tick += new System.EventHandler(this.tmp_Tick);
             // 
             // pbxAjoutSprite
             // 

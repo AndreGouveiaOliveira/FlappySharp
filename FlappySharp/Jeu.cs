@@ -12,42 +12,44 @@ namespace FlappySharp
     {
         List<Sprite> _sprites;
 
-        Sprite spriteSelected;
+        Sprite _spriteSelected;
+
+        internal List<Sprite> Sprites { get => _sprites; set => _sprites = value; }
 
         public Jeu()
         {
-            _sprites = new List<Sprite>();
+            Sprites = new List<Sprite>();
         }
 
-        public void AddSprite(string nom, Size taille, Point position, Dictionary<string,Bitmap> images, int calque, Panel panelScene)
+        public void AddSprite(string nom, Size taille, Point position, Dictionary<string, Bitmap> images, int calque, Panel panelScene)
         {
             int zOrder = 0;
 
-            if (_sprites.Count != 0 && _sprites.Where((sprite) => sprite.Calque == calque).Count() != 0)
+            if (Sprites.Count != 0 && Sprites.Where((sprite) => sprite.Calque == calque).Count() != 0)
             {
-                zOrder = _sprites.Where((sprite) => sprite.Calque == calque).OrderByDescending(sprite => sprite.ZOrder).First().ZOrder;
+                zOrder = Sprites.Where((sprite) => sprite.Calque == calque).OrderByDescending(sprite => sprite.ZOrder).First().ZOrder;
                 zOrder++;
             }
 
-            _sprites.Add(new Sprite(nom, taille, images, calque, zOrder, position, panelScene));
+            Sprites.Add(new Sprite(nom, taille, images, calque, zOrder, position, panelScene));
 
             RefreshControl();
         }
 
         public void RefreshControl()
         {
-            _sprites.ForEach(sprite => sprite.SuprControlPanel(false));
+            Sprites.ForEach(sprite => sprite.SuprControlPanel(false));
 
-            _sprites = _sprites.OrderBy(s => s.Calque).ThenBy(s => s.ZOrder).ToList<Sprite>();
+            Sprites = Sprites.OrderBy(s => s.Calque).ThenBy(s => s.ZOrder).ToList<Sprite>();
 
-            _sprites.ForEach(sprite => sprite.AjoutControlPanel());
+            Sprites.ForEach(sprite => sprite.AjoutControlPanel());
         }
 
         private void ModifZOrder(Sprite spriteZOrderChanger)
         {
-            if (_sprites.Count != 0)
+            if (Sprites.Count != 0)
             {
-                foreach (var spiteChangementZOrder in _sprites)
+                foreach (var spiteChangementZOrder in Sprites)
                 {
                     if (spriteZOrderChanger.Name != spiteChangementZOrder.Name && spriteZOrderChanger.ZOrder == spiteChangementZOrder.ZOrder && spriteZOrderChanger.Calque == spiteChangementZOrder.Calque)
                     {
@@ -67,39 +69,39 @@ namespace FlappySharp
             RefreshControl();
         }
 
-        public void UpdateValueSpriteSelected(string nom, Size size, Point location, Dictionary<string,Bitmap> images, int intervalImage, int calque, int zOrder, string tag, int rotation)
+        public void UpdateValueSpriteSelected(string nom, Size size, Point location, Dictionary<string, Bitmap> images, int intervalImage, int calque, int zOrder, string tag, int rotation)
         {
-            if (spriteSelected.Calque == calque)
+            if (_spriteSelected.Calque == calque)
             {
-                if (spriteSelected.ZOrder < spriteSelected.ZOrder + zOrder)
+                if (_spriteSelected.ZOrder < _spriteSelected.ZOrder + zOrder)
                 {
-                    spriteSelected.UpdateValue(nom, size, location, images, intervalImage, calque, spriteSelected.ZOrder + zOrder, tag, rotation);
-                    spriteSelected.DescendreZOrder();
-                    ModifZOrder(spriteSelected);
+                    _spriteSelected.UpdateValue(nom, size, location, images, intervalImage, calque, _spriteSelected.ZOrder + zOrder, tag, rotation);
+                    _spriteSelected.DescendreZOrder();
+                    ModifZOrder(_spriteSelected);
                 }
 
-                if (spriteSelected.ZOrder > spriteSelected.ZOrder + zOrder)
+                if (_spriteSelected.ZOrder > _spriteSelected.ZOrder + zOrder)
                 {
-                    spriteSelected.UpdateValue(nom, size, location, images, intervalImage, calque, spriteSelected.ZOrder + zOrder, tag, rotation);
-                    spriteSelected.MonterZOrder();
-                    ModifZOrder(spriteSelected);
+                    _spriteSelected.UpdateValue(nom, size, location, images, intervalImage, calque, _spriteSelected.ZOrder + zOrder, tag, rotation);
+                    _spriteSelected.MonterZOrder();
+                    ModifZOrder(_spriteSelected);
                 }
 
-                if (spriteSelected.ZOrder == spriteSelected.ZOrder + zOrder)
+                if (_spriteSelected.ZOrder == _spriteSelected.ZOrder + zOrder)
                 {
-                    spriteSelected.UpdateValue(nom, size, location, images, intervalImage, calque, zOrder, tag, rotation);
+                    _spriteSelected.UpdateValue(nom, size, location, images, intervalImage, calque, zOrder, tag, rotation);
                 }
             }
             else
             {
                 zOrder = 0;
 
-                if (_sprites.Count != 0 && _sprites.Where((sprite) => sprite.Calque == calque).Count() != 0)
+                if (Sprites.Count != 0 && Sprites.Where((sprite) => sprite.Calque == calque).Count() != 0)
                 {
-                    zOrder = _sprites.Where((sprite) => sprite.Calque == calque).OrderByDescending(sprite => sprite.ZOrder).First().ZOrder;
+                    zOrder = Sprites.Where((sprite) => sprite.Calque == calque).OrderByDescending(sprite => sprite.ZOrder).First().ZOrder;
                     zOrder++;
                 }
-                spriteSelected.UpdateValue(nom, size, location, images, intervalImage, calque, zOrder, tag, rotation);
+                _spriteSelected.UpdateValue(nom, size, location, images, intervalImage, calque, zOrder, tag, rotation);
 
                 RefreshControl();
             }
@@ -107,15 +109,16 @@ namespace FlappySharp
 
         public Sprite GetValueSpriteSelected()
         {
-            foreach (var sprite in _sprites)
+            foreach (var sprite in Sprites)
             {
-                if (sprite.Selected && sprite != spriteSelected)
+                if (sprite.Selected && sprite != _spriteSelected)
                 {
-                    spriteSelected = sprite;
-                    spriteSelected.Selected = false;
+                    _spriteSelected = sprite;
+                    _spriteSelected.Selected = false;
                 }
             }
-            return spriteSelected;
+
+            return _spriteSelected;
         }
     }
 }

@@ -28,6 +28,10 @@ namespace FlappySharp
         public int ZOrder { get => _zOrder; set => _zOrder = value; }
         public string ModificationZOrder { get => _modificationZOrder; set => _modificationZOrder = value; }
         public bool Selected { get => _selected; set => _selected = value; }
+        public int IntervalEntreImage { get => _intervalEntreImage; set => _intervalEntreImage = value; }
+        public string TagSprite { get => _tagSprite; set => _tagSprite = value; }
+        public int Rotation { get => _rotation; set => _rotation = value; }
+        public Dictionary<string, Bitmap> Images { get => _images; set => _images = value; }
 
         public Sprite(string nom, Size taille, Dictionary<string, Bitmap> images, int calque, int zOrder, Point position, Panel zoneScene)
         {
@@ -40,7 +44,7 @@ namespace FlappySharp
 
             _collision = new Rectangle(new Point(0,0), new Size(taille.Width - 1, taille.Height - 1));
 
-            _images = images;
+            Images = images;
             Calque = calque;
             ZOrder = zOrder;
             _zoneScene = zoneScene;
@@ -81,12 +85,12 @@ namespace FlappySharp
             base.Name = nom;
             base.Size = taille;
             base.Location = position;
-            _images = image;
-            _intervalEntreImage = intervalImage;
+            Images = image;
+            IntervalEntreImage = intervalImage;
             Calque = calque;
             ZOrder = zOrder;
-            _tagSprite = tag;
-            _rotation = rotation;
+            TagSprite = tag;
+            Rotation = rotation;
         }
 
         // :TODO Mettre la rotation et annimation de l'image

@@ -8,3 +8,4 @@ C:\Users\Dev\source\repos\FlappySharp\FlappySharp\obj\Debug\FlappySharp.csproj.C
 C:\Users\Dev\source\repos\FlappySharp\FlappySharp\obj\Debug\FlappySharp.exe
 C:\Users\Dev\source\repos\FlappySharp\FlappySharp\obj\Debug\FlappySharp.pdb
 C:\Users\Dev\source\repos\FlappySharp\FlappySharp\obj\Debug\FlappySharp.csprojAssemblyReference.cache
+C:\Users\Dev\source\repos\FlappySharp\FlappySharp\obj\Debug\FlappySharp.frmAjoutSprite.resources
