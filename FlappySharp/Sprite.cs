@@ -17,9 +17,18 @@ namespace FlappySharp
         int _yPos;
         int _calque;
         int _zOrder;
+        int _intervalEntreImage;
+        int _rotation;
         bool _dragging;
         bool _selected;
         string _modificationZOrder;
+        string _tagSprite;
+
+        public int Calque { get => _calque; private set => _calque = value; }
+        public int ZOrder { get => _zOrder; set => _zOrder = value; }
+        public string ModificationZOrder { get => _modificationZOrder; set => _modificationZOrder = value; }
+        public bool Selected { get => _selected; set => _selected = value; }
+
         public Sprite(string nom, Size taille, Dictionary<string, Bitmap> images, int calque, int zOrder, Point position, Panel zoneScene)
         {
             base.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -32,8 +41,8 @@ namespace FlappySharp
             _collision = new Rectangle(new Point(0,0), new Size(taille.Width - 1, taille.Height - 1));
 
             _images = images;
-            _calque = calque;
-            _zOrder = zOrder;
+            Calque = calque;
+            ZOrder = zOrder;
             _zoneScene = zoneScene;
 
             base.MouseDown += pbx_MouseDown;
@@ -42,10 +51,10 @@ namespace FlappySharp
             base.Paint += pbx_Paint;
             base.Click += pbx_Click;
 
-            AjouterControlPanel();
+            AjoutControlPanel();
         }
 
-        public void AjouterControlPanel()
+        public void AjoutControlPanel()
         {
             _zoneScene.Controls.Add(this);
         }
@@ -59,12 +68,28 @@ namespace FlappySharp
 
         public void MonterZOrder()
         {
-            _modificationZOrder = "-";
+            ModificationZOrder = "-";
         }
+
         public void DescendreZOrder()
         {
-            _modificationZOrder = "-";
+            ModificationZOrder = "+";
         }
+
+        public void UpdateValue(string nom, Size taille, Point position, Dictionary<string,Bitmap> image, int intervalImage, int calque, int zOrder, string tag, int rotation)
+        {
+            base.Name = nom;
+            base.Size = taille;
+            base.Location = position;
+            _images = image;
+            _intervalEntreImage = intervalImage;
+            Calque = calque;
+            ZOrder = zOrder;
+            _tagSprite = tag;
+            _rotation = rotation;
+        }
+
+        // :TODO Mettre la rotation et annimation de l'image
 
         #region Event
         private void pbx_MouseUp(object sender, MouseEventArgs e)
@@ -72,7 +97,7 @@ namespace FlappySharp
             var c = sender as PictureBox;
             if (null == c) return;
             _dragging = false;
-            _collision = new Rectangle(base.Location, base.Size);
+            _collision = new Rectangle(new Point(0,0), base.Size);
         }
 
         private void pbx_MouseDown(object sender, MouseEventArgs e)
@@ -95,7 +120,7 @@ namespace FlappySharp
         {
             if (sender is Sprite)
             {
-                e.Graphics.DrawRectangle(Pens.Black, _collision);
+                e.Graphics.DrawRectangle(Pens.Transparent, _collision);
             }
         }
 
@@ -103,7 +128,7 @@ namespace FlappySharp
         {
             if (sender is Sprite)
             {
-                _selected = true;
+                Selected = true;
             }
         }
         #endregion

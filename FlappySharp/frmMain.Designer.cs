@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ouvrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,6 +70,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbxIntervalImage = new System.Windows.Forms.TextBox();
             this.tbxNom = new System.Windows.Forms.TextBox();
+            this.tmp = new System.Windows.Forms.Timer(this.components);
             this.pbxAjoutSprite = new System.Windows.Forms.PictureBox();
             this.pbxAjoutTuyau = new System.Windows.Forms.PictureBox();
             this.pbxAjoutSol = new System.Windows.Forms.PictureBox();
@@ -285,6 +288,7 @@
             this.btnDownZOrder.TabIndex = 24;
             this.btnDownZOrder.Text = "Down";
             this.btnDownZOrder.UseVisualStyleBackColor = true;
+            this.btnDownZOrder.Click += new System.EventHandler(this.btnDownZOrder_Click);
             // 
             // label11
             // 
@@ -303,6 +307,7 @@
             this.btnUpZOrder.TabIndex = 23;
             this.btnUpZOrder.Text = "Up";
             this.btnUpZOrder.UseVisualStyleBackColor = true;
+            this.btnUpZOrder.Click += new System.EventHandler(this.btnUpZOrder_Click);
             // 
             // nudCalque
             // 
@@ -374,6 +379,7 @@
             this.btnSauveModif.TabIndex = 21;
             this.btnSauveModif.Text = "Sauvegarder Modification";
             this.btnSauveModif.UseVisualStyleBackColor = true;
+            this.btnSauveModif.Click += new System.EventHandler(this.btnSauveModif_Click);
             // 
             // btnSupr
             // 
@@ -467,6 +473,10 @@
             this.tbxNom.Size = new System.Drawing.Size(193, 20);
             this.tbxNom.TabIndex = 0;
             // 
+            // tmp
+            // 
+            this.tmp.Interval = 1000;
+            // 
             // pbxAjoutSprite
             // 
             this.pbxAjoutSprite.Image = global::FlappySharp.Properties.Resources.add;
@@ -513,7 +523,7 @@
             // 
             // pbxAjoutFlappy
             // 
-            this.pbxAjoutFlappy.Image = global::FlappySharp.Properties.Resources.Falppy_1;
+            this.pbxAjoutFlappy.Image = global::FlappySharp.Properties.Resources.Flappy_3;
             this.pbxAjoutFlappy.Location = new System.Drawing.Point(11, 6);
             this.pbxAjoutFlappy.Name = "pbxAjoutFlappy";
             this.pbxAjoutFlappy.Size = new System.Drawing.Size(70, 70);
@@ -530,6 +540,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "frmMain";
@@ -609,6 +620,7 @@
         private System.Windows.Forms.PictureBox pbxAjoutSol;
         private System.Windows.Forms.PictureBox pbxAjoutFond;
         private System.Windows.Forms.PictureBox pbxAjoutFlappy;
+        private System.Windows.Forms.Timer tmp;
     }
 }
 
