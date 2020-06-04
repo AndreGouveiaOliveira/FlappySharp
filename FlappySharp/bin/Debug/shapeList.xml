@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ArrayOfSpriteSerialisable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SpriteSerialisable>
+    <Position>
+      <X>50</X>
+      <Y>50</Y>
+    </Position>
+    <Taille>
+      <Width>50</Width>
+      <Height>50</Height>
+    </Taille>
+    <NomImages>
+      <string>Flappy_1.png</string>
+      <string>Flappy_2.png</string>
+      <string>Flappy_3.png</string>
+    </NomImages>
+    <Nom>Flappy</Nom>
+    <Calque>1</Calque>
+    <ZOrder>0</ZOrder>
+    <IntervalEntreImage>1</IntervalEntreImage>
+    <AngleRotation>0</AngleRotation>
+  </SpriteSerialisable>
+</ArrayOfSpriteSerialisable>

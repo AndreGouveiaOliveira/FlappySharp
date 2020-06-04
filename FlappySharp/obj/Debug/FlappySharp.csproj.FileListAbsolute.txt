@@ -1,11 +1,6 @@
-C:\Users\Dev\source\repos\FlappySharp\FlappySharp\bin\Debug\FlappySharp.exe.config
-C:\Users\Dev\source\repos\FlappySharp\FlappySharp\bin\Debug\FlappySharp.exe
-C:\Users\Dev\source\repos\FlappySharp\FlappySharp\bin\Debug\FlappySharp.pdb
+C:\Users\Dev\source\repos\FlappySharp\FlappySharp\obj\Debug\FlappySharp.csprojAssemblyReference.cache
+C:\Users\Dev\source\repos\FlappySharp\FlappySharp\obj\Debug\FlappySharp.frmAjoutSprite.resources
 C:\Users\Dev\source\repos\FlappySharp\FlappySharp\obj\Debug\FlappySharp.frmMain.resources
 C:\Users\Dev\source\repos\FlappySharp\FlappySharp\obj\Debug\FlappySharp.Properties.Resources.resources
 C:\Users\Dev\source\repos\FlappySharp\FlappySharp\obj\Debug\FlappySharp.csproj.GenerateResource.cache
 C:\Users\Dev\source\repos\FlappySharp\FlappySharp\obj\Debug\FlappySharp.csproj.CoreCompileInputs.cache
-C:\Users\Dev\source\repos\FlappySharp\FlappySharp\obj\Debug\FlappySharp.exe
-C:\Users\Dev\source\repos\FlappySharp\FlappySharp\obj\Debug\FlappySharp.pdb
-C:\Users\Dev\source\repos\FlappySharp\FlappySharp\obj\Debug\FlappySharp.csprojAssemblyReference.cache
-C:\Users\Dev\source\repos\FlappySharp\FlappySharp\obj\Debug\FlappySharp.frmAjoutSprite.resources

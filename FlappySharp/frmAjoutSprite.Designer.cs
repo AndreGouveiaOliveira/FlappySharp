@@ -45,7 +45,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lbxImage = new System.Windows.Forms.ListBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnOk = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.lfd = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
@@ -56,6 +56,7 @@
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(168, 20);
             this.tbxName.TabIndex = 0;
+            this.tbxName.TextChanged += new System.EventHandler(this.tbxName_TextChanged);
             // 
             // btnAjoutImage
             // 
@@ -65,6 +66,7 @@
             this.btnAjoutImage.TabIndex = 1;
             this.btnAjoutImage.Text = "Ajouter une image";
             this.btnAjoutImage.UseVisualStyleBackColor = true;
+            this.btnAjoutImage.Click += new System.EventHandler(this.btnAjoutImage_Click);
             // 
             // tbxPosX
             // 
@@ -72,6 +74,8 @@
             this.tbxPosX.Name = "tbxPosX";
             this.tbxPosX.Size = new System.Drawing.Size(144, 20);
             this.tbxPosX.TabIndex = 2;
+            this.tbxPosX.TextChanged += new System.EventHandler(this.tbxPosX_TextChanged);
+            this.tbxPosX.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VerifieNombre);
             // 
             // tbxPosY
             // 
@@ -79,6 +83,8 @@
             this.tbxPosY.Name = "tbxPosY";
             this.tbxPosY.Size = new System.Drawing.Size(144, 20);
             this.tbxPosY.TabIndex = 3;
+            this.tbxPosY.TextChanged += new System.EventHandler(this.tbxPosY_TextChanged);
+            this.tbxPosY.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VerifieNombre);
             // 
             // tbxLargeur
             // 
@@ -86,6 +92,8 @@
             this.tbxLargeur.Name = "tbxLargeur";
             this.tbxLargeur.Size = new System.Drawing.Size(120, 20);
             this.tbxLargeur.TabIndex = 5;
+            this.tbxLargeur.TextChanged += new System.EventHandler(this.tbxLargeur_TextChanged);
+            this.tbxLargeur.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VerifieNombre);
             // 
             // tbxHauteur
             // 
@@ -93,6 +101,8 @@
             this.tbxHauteur.Name = "tbxHauteur";
             this.tbxHauteur.Size = new System.Drawing.Size(120, 20);
             this.tbxHauteur.TabIndex = 4;
+            this.tbxHauteur.TextChanged += new System.EventHandler(this.tbxHauteur_TextChanged);
+            this.tbxHauteur.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VerifieNombre);
             // 
             // tbxCalque
             // 
@@ -100,6 +110,8 @@
             this.tbxCalque.Name = "tbxCalque";
             this.tbxCalque.Size = new System.Drawing.Size(166, 20);
             this.tbxCalque.TabIndex = 6;
+            this.tbxCalque.TextChanged += new System.EventHandler(this.tbxCalque_TextChanged);
+            this.tbxCalque.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VerifieNombre);
             // 
             // label1
             // 
@@ -181,15 +193,16 @@
             this.lbxImage.Size = new System.Drawing.Size(168, 95);
             this.lbxImage.TabIndex = 15;
             // 
-            // button2
+            // btnOk
             // 
-            this.button2.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button2.Location = new System.Drawing.Point(10, 402);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(168, 33);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "OK";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnOk.Enabled = false;
+            this.btnOk.Location = new System.Drawing.Point(10, 402);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(168, 33);
+            this.btnOk.TabIndex = 16;
+            this.btnOk.Text = "OK";
+            this.btnOk.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -204,6 +217,8 @@
             // lfd
             // 
             this.lfd.FileName = "openFileDialog1";
+            this.lfd.Filter = "Image Files (*.bmp;*.png;*.jpg)|*.bmp;*.png;*.jpg";
+            this.lfd.Multiselect = true;
             // 
             // frmAjoutSprite
             // 
@@ -211,7 +226,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(190, 484);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnOk);
             this.Controls.Add(this.lbxImage);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -257,7 +272,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ListBox lbxImage;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.OpenFileDialog lfd;
     }

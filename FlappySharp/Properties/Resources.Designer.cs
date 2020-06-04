@@ -73,59 +73,9 @@ namespace FlappySharp.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Arrière_plan_1 {
-            get {
-                object obj = ResourceManager.GetObject("Arrière plan-1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Falppy_1 {
-            get {
-                object obj = ResourceManager.GetObject("Falppy_1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Falppy_1_1 {
-            get {
-                object obj = ResourceManager.GetObject("Falppy 1-1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Falppy_1_11 {
-            get {
-                object obj = ResourceManager.GetObject("Falppy 1-11", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Falppy_11 {
-            get {
-                object obj = ResourceManager.GetObject("Falppy_11", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Flappy_1 {
             get {
-                object obj = ResourceManager.GetObject("Flappy 1", resourceCulture);
+                object obj = ResourceManager.GetObject("Flappy_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +103,9 @@ namespace FlappySharp.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Terrain_1 {
+        internal static System.Drawing.Bitmap Fond {
             get {
-                object obj = ResourceManager.GetObject("Terrain-1", resourceCulture);
+                object obj = ResourceManager.GetObject("Fond", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +113,19 @@ namespace FlappySharp.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tube_1 {
+        internal static System.Drawing.Bitmap Sol {
             get {
-                object obj = ResourceManager.GetObject("tube-1", resourceCulture);
+                object obj = ResourceManager.GetObject("Sol", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tuyau {
+            get {
+                object obj = ResourceManager.GetObject("Tuyau", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

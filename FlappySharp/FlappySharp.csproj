@@ -67,6 +67,7 @@
     <Compile Include="Sprite.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="SpriteSerialisable.cs" />
     <EmbeddedResource Include="frmAjoutSprite.resx">
       <DependentUpon>frmAjoutSprite.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,40 +98,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\add.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Falppy 1-1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Arrière plan-1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Terrain-1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tube-1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Falppy 1-11.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Falppy_1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Falppy_11.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Flappy 1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Flappy_2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Flappy_3.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="iconFlappySharp.ico" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\Tuyau.jpg" />
+    <None Include="Resources\Sol.jpg" />
+    <None Include="Resources\Fond.jpg" />
+    <None Include="Resources\Flappy_3.png" />
+    <None Include="Resources\Flappy_2.png" />
+    <None Include="Resources\Flappy_1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

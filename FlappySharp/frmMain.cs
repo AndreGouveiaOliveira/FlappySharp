@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,46 +24,46 @@ namespace FlappySharp
             DoubleBuffered = true;
 
             jeu = new Jeu();
-            images = new Dictionary<string, Bitmap>();
         }
 
         private void pbxAjoutFlappy_Click(object sender, EventArgs e)
         {
             Dictionary<string, Bitmap> images = new Dictionary<string, Bitmap>();
-            images.Add("test", new Bitmap(pbxAjoutFlappy.Image));
-            images.Add("test1", new Bitmap(@"C:\Users\Dev\Desktop\Flapy\Flapy\Flappy_1.jpg"));
-            images.Add("test2", new Bitmap(@"C:\Users\Dev\Desktop\Flapy\Flapy\Flappy_2.jpg"));
-            images.Add("test3", new Bitmap(@"C:\Users\Dev\Desktop\Flapy\Flapy\Flappy_3.jpg"));
-            //Sprite s = new Sprite("test", new Size(50, 50), images, 1, 1, new Point(50, 50), spSceneParam.Panel1);
-            jeu.AddSprite("test", new Size(50, 50), new Point(50, 50), images, 1, spSceneParam.Panel1);
+            images.Add("Flappy_1.png", new Bitmap(Properties.Resources.Flappy_1));
+            images.Add("Flappy_2.png", new Bitmap(Properties.Resources.Flappy_2));
+            images.Add("Flappy_3.png", new Bitmap(Properties.Resources.Flappy_3));
+            jeu.AddSprite("Flappy", new Size(50, 50), new Point(50, 50), images, 1, spSceneParam.Panel1);
         }
 
         private void pbxAjoutFond_Click(object sender, EventArgs e)
         {
             Dictionary<string, Bitmap> images = new Dictionary<string, Bitmap>();
-            images.Add("test", new Bitmap(pbxAjoutFond.Image));
-            Sprite s = new Sprite("test", new Size(100, 100), images, 1, 1, new Point(50, 50), spSceneParam.Panel1);
+            images.Add("Fond.jpg", new Bitmap(Properties.Resources.Fond));
+            jeu.AddSprite("Fond", new Size(100, 100), new Point(50, 50), images, 1, spSceneParam.Panel1);
         }
 
         private void pbxAjoutSol_Click(object sender, EventArgs e)
         {
             Dictionary<string, Bitmap> images = new Dictionary<string, Bitmap>();
-            images.Add("test", new Bitmap(pbxAjoutSol.Image));
-            Sprite s = new Sprite("test", new Size(100, 100), images, 1, 1, new Point(50, 50), spSceneParam.Panel1);
+            images.Add("Sol.jpg", new Bitmap(Properties.Resources.Sol));
+            jeu.AddSprite("Sol", new Size(100, 100), new Point(50, 50), images, 1, spSceneParam.Panel1);
         }
 
         private void pbxAjoutTuyau_Click(object sender, EventArgs e)
         {
             Dictionary<string, Bitmap> images = new Dictionary<string, Bitmap>();
-            images.Add("test", new Bitmap(pbxAjoutTuyau.Image));
-            Sprite s = new Sprite("test", new Size(100, 100), images, 1, 1, new Point(50, 50), spSceneParam.Panel1);
+            images.Add("Tuyau.jpg", new Bitmap(Properties.Resources.Tuyau));
+            jeu.AddSprite("Tuyau", new Size(100, 100), new Point(50, 50), images, 1, spSceneParam.Panel1);
         }
 
         private void pbxAjoutSprite_Click(object sender, EventArgs e)
         {
-            Dictionary<string, Bitmap> images = new Dictionary<string, Bitmap>();
-            //images.Add("test", new Bitmap()); // :TODO Mettre les images select dans la form ajout
-            Sprite s = new Sprite("test", new Size(100, 100), images, 1, 1, new Point(50, 50), spSceneParam.Panel1);
+            frmAjoutSprite frmAjout = new frmAjoutSprite();
+
+            if (frmAjout.ShowDialog() == DialogResult.OK)
+            {
+                jeu.AddSprite(frmAjout.GetNom(), frmAjout.GetTaille(), frmAjout.GetPosition(), frmAjout.GetImages(), frmAjout.GetCalque(), spSceneParam.Panel1);
+            }
         }
 
         private void btnUpZOrder_Click(object sender, EventArgs e)
@@ -110,13 +111,14 @@ namespace FlappySharp
                 tbxPosX.Text = _spriteSelected.Location.X.ToString();
                 tbxPosY.Text = _spriteSelected.Location.Y.ToString();
                 lbxImages.Items.Clear();
+                images = _spriteSelected.Images;
                 foreach (var image in _spriteSelected.Images.Keys)
                 {
                     lbxImages.Items.Add(image);
                 }
                 tbxIntervalImage.Text = _spriteSelected.IntervalEntreImage.ToString();
                 cbxTag.Text = _spriteSelected.TagSprite;
-                nudRotation.Value = _spriteSelected.Rotation;
+                nudRotation.Value = _spriteSelected.AngleRotation;
                 btnSupr.Enabled = true;
             }
 
@@ -128,6 +130,22 @@ namespace FlappySharp
             {
                 btnSauveModif.Enabled = true;
             }
+        }
+
+        private void runToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //_spriteSelected.DemareAnimation();
+            //_spriteSelected.RotationImage();
+
+            //string path = @"C:\Users\Dev\Desktop\Test";
+            // Permet de créer des dossier https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/file-system/how-to-create-a-file-or-folder
+            //Directory.CreateDirectory(path);
+            // Permet de supprimer un dossier https://docs.microsoft.com/en-us/dotnet/api/system.io.directory.delete?view=netcore-3.1
+            //Directory.Delete(path);
+
+
+            jeu.XMLDeserialize();
+            //jeu.XMLSerialize();
         }
     }
 }

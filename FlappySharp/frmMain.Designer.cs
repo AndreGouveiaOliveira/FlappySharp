@@ -70,12 +70,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbxIntervalImage = new System.Windows.Forms.TextBox();
             this.tbxNom = new System.Windows.Forms.TextBox();
-            this.tmp = new System.Windows.Forms.Timer(this.components);
             this.pbxAjoutSprite = new System.Windows.Forms.PictureBox();
             this.pbxAjoutTuyau = new System.Windows.Forms.PictureBox();
             this.pbxAjoutSol = new System.Windows.Forms.PictureBox();
             this.pbxAjoutFond = new System.Windows.Forms.PictureBox();
             this.pbxAjoutFlappy = new System.Windows.Forms.PictureBox();
+            this.tmp = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -159,6 +159,7 @@
             this.runToolStripMenuItem.Name = "runToolStripMenuItem";
             this.runToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
             this.runToolStripMenuItem.Text = "Run";
+            this.runToolStripMenuItem.Click += new System.EventHandler(this.runToolStripMenuItem_Click);
             // 
             // splitContainer1
             // 
@@ -395,6 +396,11 @@
             // nudRotation
             // 
             this.nudRotation.Location = new System.Drawing.Point(183, 393);
+            this.nudRotation.Maximum = new decimal(new int[] {
+            360,
+            0,
+            0,
+            0});
             this.nudRotation.Name = "nudRotation";
             this.nudRotation.Size = new System.Drawing.Size(63, 20);
             this.nudRotation.TabIndex = 19;
@@ -474,66 +480,66 @@
             this.tbxNom.Size = new System.Drawing.Size(193, 20);
             this.tbxNom.TabIndex = 0;
             // 
-            // tmp
-            // 
-            this.tmp.Enabled = true;
-            this.tmp.Interval = 1000;
-            this.tmp.Tick += new System.EventHandler(this.tmp_Tick);
-            // 
             // pbxAjoutSprite
             // 
             this.pbxAjoutSprite.Image = global::FlappySharp.Properties.Resources.add;
-            this.pbxAjoutSprite.Location = new System.Drawing.Point(363, 6);
+            this.pbxAjoutSprite.Location = new System.Drawing.Point(368, 6);
             this.pbxAjoutSprite.Name = "pbxAjoutSprite";
             this.pbxAjoutSprite.Size = new System.Drawing.Size(70, 70);
             this.pbxAjoutSprite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxAjoutSprite.TabIndex = 4;
+            this.pbxAjoutSprite.TabIndex = 9;
             this.pbxAjoutSprite.TabStop = false;
             this.pbxAjoutSprite.Click += new System.EventHandler(this.pbxAjoutSprite_Click);
             // 
             // pbxAjoutTuyau
             // 
-            this.pbxAjoutTuyau.Image = global::FlappySharp.Properties.Resources.tube_1;
+            this.pbxAjoutTuyau.Image = global::FlappySharp.Properties.Resources.Tuyau;
             this.pbxAjoutTuyau.Location = new System.Drawing.Point(276, 6);
             this.pbxAjoutTuyau.Name = "pbxAjoutTuyau";
             this.pbxAjoutTuyau.Size = new System.Drawing.Size(70, 70);
             this.pbxAjoutTuyau.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxAjoutTuyau.TabIndex = 3;
+            this.pbxAjoutTuyau.TabIndex = 8;
             this.pbxAjoutTuyau.TabStop = false;
             this.pbxAjoutTuyau.Click += new System.EventHandler(this.pbxAjoutTuyau_Click);
             // 
             // pbxAjoutSol
             // 
-            this.pbxAjoutSol.Image = global::FlappySharp.Properties.Resources.Terrain_1;
-            this.pbxAjoutSol.Location = new System.Drawing.Point(188, 6);
+            this.pbxAjoutSol.Image = global::FlappySharp.Properties.Resources.Sol;
+            this.pbxAjoutSol.Location = new System.Drawing.Point(186, 6);
             this.pbxAjoutSol.Name = "pbxAjoutSol";
             this.pbxAjoutSol.Size = new System.Drawing.Size(70, 70);
             this.pbxAjoutSol.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxAjoutSol.TabIndex = 2;
+            this.pbxAjoutSol.TabIndex = 7;
             this.pbxAjoutSol.TabStop = false;
             this.pbxAjoutSol.Click += new System.EventHandler(this.pbxAjoutSol_Click);
             // 
             // pbxAjoutFond
             // 
-            this.pbxAjoutFond.Image = global::FlappySharp.Properties.Resources.Arrière_plan_1;
-            this.pbxAjoutFond.Location = new System.Drawing.Point(99, 6);
+            this.pbxAjoutFond.Image = global::FlappySharp.Properties.Resources.Fond;
+            this.pbxAjoutFond.Location = new System.Drawing.Point(101, 6);
             this.pbxAjoutFond.Name = "pbxAjoutFond";
             this.pbxAjoutFond.Size = new System.Drawing.Size(70, 70);
             this.pbxAjoutFond.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxAjoutFond.TabIndex = 1;
+            this.pbxAjoutFond.TabIndex = 6;
             this.pbxAjoutFond.TabStop = false;
             this.pbxAjoutFond.Click += new System.EventHandler(this.pbxAjoutFond_Click);
             // 
             // pbxAjoutFlappy
             // 
-            this.pbxAjoutFlappy.Image = global::FlappySharp.Properties.Resources.Flappy_3;
+            this.pbxAjoutFlappy.Image = global::FlappySharp.Properties.Resources.Flappy_1;
             this.pbxAjoutFlappy.Location = new System.Drawing.Point(11, 6);
             this.pbxAjoutFlappy.Name = "pbxAjoutFlappy";
             this.pbxAjoutFlappy.Size = new System.Drawing.Size(70, 70);
             this.pbxAjoutFlappy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxAjoutFlappy.TabIndex = 0;
+            this.pbxAjoutFlappy.TabIndex = 5;
             this.pbxAjoutFlappy.TabStop = false;
             this.pbxAjoutFlappy.Click += new System.EventHandler(this.pbxAjoutFlappy_Click);
+            // 
+            // tmp
+            // 
+            this.tmp.Enabled = true;
+            this.tmp.Interval = 1000;
+            this.tmp.Tick += new System.EventHandler(this.tmp_Tick);
             // 
             // frmMain
             // 
@@ -618,12 +624,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbxIntervalImage;
         private System.Windows.Forms.TextBox tbxNom;
+        private System.Windows.Forms.Timer tmp;
         private System.Windows.Forms.PictureBox pbxAjoutSprite;
         private System.Windows.Forms.PictureBox pbxAjoutTuyau;
         private System.Windows.Forms.PictureBox pbxAjoutSol;
         private System.Windows.Forms.PictureBox pbxAjoutFond;
         private System.Windows.Forms.PictureBox pbxAjoutFlappy;
-        private System.Windows.Forms.Timer tmp;
     }
 }
 
