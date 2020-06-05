@@ -22,6 +22,8 @@ namespace FlappySharp
         string _cheminDossierProjet;
 
         internal List<Sprite> Sprites { get => _sprites; set => _sprites = value; }
+        public string NomProjet { get => _nomProjet; set => _nomProjet = value; }
+        public string CheminDossierProjet { get => _cheminDossierProjet; set => _cheminDossierProjet = value; }
 
         public Jeu()
         {
@@ -153,9 +155,13 @@ namespace FlappySharp
 
         public void CreationDossierProjet(string cheminDossierProjet, string nomProjet)
         {
-            _nomProjet = nomProjet;
-            _cheminDossierProjet = cheminDossierProjet;
-            Directory.CreateDirectory(cheminDossierProjet + nomProjet);
+            NomProjet = nomProjet;
+            CheminDossierProjet = cheminDossierProjet;
+            Directory.CreateDirectory(Path.Combine(cheminDossierProjet, nomProjet));
+            foreach (var sprite in Sprites)
+            {
+                sprite.CreationDossier(Path.Combine(cheminDossierProjet, nomProjet));
+            }
         }
 
         public void XMLSerialize()
@@ -175,32 +181,32 @@ namespace FlappySharp
 
                 _spriteSerialisables.Add(spriteSerialise);
             }
-            Stream stream = File.Open(_cheminDossierProjet + _nomProjet+".xml", FileMode.Create);
+            Stream stream = File.Open(Path.Combine(CheminDossierProjet, NomProjet + @"\" + NomProjet + ".xml"), FileMode.Create);
             XmlSerializer formatter = new XmlSerializer(typeof(List<SpriteSerialisable>));
             formatter.Serialize(stream, _spriteSerialisables);
             stream.Close();
         }
 
-        public List<SpriteSerialisable> XMLDeserialize()
+        public List<SpriteSerialisable> XMLDeserialize(string cheminXml)
         {
-            Stream stream = File.Open("shapeList.xml", FileMode.Open);
+            Stream stream = File.Open(cheminXml, FileMode.Open);
             XmlSerializer formatter = new XmlSerializer(typeof(List<SpriteSerialisable>));
             List<SpriteSerialisable> obj = (List<SpriteSerialisable>)formatter.Deserialize(stream);
             stream.Close();
             return obj;
         }
 
-        public void CreateSpriteAfterDeserialize(Panel panel)
+        public void CreateSpriteAfterDeserialize(Panel panel, string cheminXml)
         {
             Dictionary<string, Bitmap> images;
-            _spriteSerialisables = XMLDeserialize();
+            _spriteSerialisables = XMLDeserialize(cheminXml);
             foreach (var spriteSerialize in _spriteSerialisables)
             {
                 images = new Dictionary<string, Bitmap>();
 
                 foreach (var nomImage in spriteSerialize.NomImages)
                 {
-                    images.Add(nomImage, new Bitmap(spriteSerialize.CheminDossier + nomImage));
+                    images.Add(nomImage, new Bitmap(spriteSerialize.CheminDossier + @"\"+ spriteSerialize.Nom + @"\" +nomImage));
                 }
 
                 Sprites.Add(new Sprite(spriteSerialize.Nom, spriteSerialize.Taille, images, spriteSerialize.Calque, spriteSerialize.ZOrder, spriteSerialize.Position, panel));
@@ -211,7 +217,9 @@ namespace FlappySharp
                     {
                         sprite.UpdateValue(spriteSerialize.Nom, spriteSerialize.Taille, spriteSerialize.Position, images, spriteSerialize.IntervalEntreImage, spriteSerialize.Calque, spriteSerialize.ZOrder, spriteSerialize.TagSprite, spriteSerialize.AngleRotation);
                     }
+                    sprite.CheminDossierImage = spriteSerialize.CheminDossier;
                 }
+                _cheminDossierProjet = spriteSerialize.CheminDossier;
             }
             RefreshControl();
         }

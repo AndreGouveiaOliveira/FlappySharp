@@ -35,7 +35,6 @@
             this.ouvrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.enregistrerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.enregistrerSousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,6 +75,7 @@
             this.pbxAjoutFond = new System.Windows.Forms.PictureBox();
             this.pbxAjoutFlappy = new System.Windows.Forms.PictureBox();
             this.tmp = new System.Windows.Forms.Timer(this.components);
+            this.ofdXml = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -113,7 +113,6 @@
             this.ouvrirToolStripMenuItem,
             this.toolStripSeparator1,
             this.enregistrerToolStripMenuItem,
-            this.enregistrerSousToolStripMenuItem,
             this.toolStripSeparator2,
             this.quitterToolStripMenuItem});
             this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
@@ -123,36 +122,33 @@
             // ouvrirToolStripMenuItem
             // 
             this.ouvrirToolStripMenuItem.Name = "ouvrirToolStripMenuItem";
-            this.ouvrirToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.ouvrirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ouvrirToolStripMenuItem.Text = "Ouvrir";
+            this.ouvrirToolStripMenuItem.Click += new System.EventHandler(this.ouvrirToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(154, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // enregistrerToolStripMenuItem
             // 
             this.enregistrerToolStripMenuItem.Name = "enregistrerToolStripMenuItem";
-            this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.enregistrerToolStripMenuItem.Text = "Enregistrer";
-            // 
-            // enregistrerSousToolStripMenuItem
-            // 
-            this.enregistrerSousToolStripMenuItem.Name = "enregistrerSousToolStripMenuItem";
-            this.enregistrerSousToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.enregistrerSousToolStripMenuItem.Text = "Enregistrer sous";
+            this.enregistrerToolStripMenuItem.Click += new System.EventHandler(this.enregistrerToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(154, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // quitterToolStripMenuItem
             // 
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
-            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.quitterToolStripMenuItem.Text = "Quitter";
+            this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
             // runToolStripMenuItem
             // 
@@ -416,6 +412,11 @@
             // cbxTag
             // 
             this.cbxTag.FormattingEnabled = true;
+            this.cbxTag.Items.AddRange(new object[] {
+            "Player",
+            "Fond",
+            "Sol",
+            "Ennemie"});
             this.cbxTag.Location = new System.Drawing.Point(109, 366);
             this.cbxTag.Name = "cbxTag";
             this.cbxTag.Size = new System.Drawing.Size(137, 21);
@@ -589,7 +590,6 @@
         private System.Windows.Forms.ToolStripMenuItem ouvrirToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem enregistrerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem enregistrerSousToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem runToolStripMenuItem;
@@ -630,6 +630,7 @@
         private System.Windows.Forms.PictureBox pbxAjoutSol;
         private System.Windows.Forms.PictureBox pbxAjoutFond;
         private System.Windows.Forms.PictureBox pbxAjoutFlappy;
+        private System.Windows.Forms.OpenFileDialog ofdXml;
     }
 }
 

@@ -32,28 +32,28 @@ namespace FlappySharp
             images.Add("Flappy_1.png", new Bitmap(Properties.Resources.Flappy_1));
             images.Add("Flappy_2.png", new Bitmap(Properties.Resources.Flappy_2));
             images.Add("Flappy_3.png", new Bitmap(Properties.Resources.Flappy_3));
-            jeu.AddSprite("Flappy", new Size(50, 50), new Point(50, 50), images, 1, spSceneParam.Panel1);
+            jeu.AddSprite("Flappy", new Size(50, 50), new Point(0, 0), images, 1, spSceneParam.Panel1);
         }
 
         private void pbxAjoutFond_Click(object sender, EventArgs e)
         {
             Dictionary<string, Bitmap> images = new Dictionary<string, Bitmap>();
             images.Add("Fond.jpg", new Bitmap(Properties.Resources.Fond));
-            jeu.AddSprite("Fond", new Size(100, 100), new Point(50, 50), images, 1, spSceneParam.Panel1);
+            jeu.AddSprite("Fond", new Size(100, 100), new Point(0, 0), images, 1, spSceneParam.Panel1);
         }
 
         private void pbxAjoutSol_Click(object sender, EventArgs e)
         {
             Dictionary<string, Bitmap> images = new Dictionary<string, Bitmap>();
             images.Add("Sol.jpg", new Bitmap(Properties.Resources.Sol));
-            jeu.AddSprite("Sol", new Size(100, 100), new Point(50, 50), images, 1, spSceneParam.Panel1);
+            jeu.AddSprite("Sol", new Size(100, 100), new Point(0, 0), images, 1, spSceneParam.Panel1);
         }
 
         private void pbxAjoutTuyau_Click(object sender, EventArgs e)
         {
             Dictionary<string, Bitmap> images = new Dictionary<string, Bitmap>();
             images.Add("Tuyau.jpg", new Bitmap(Properties.Resources.Tuyau));
-            jeu.AddSprite("Tuyau", new Size(100, 100), new Point(50, 50), images, 1, spSceneParam.Panel1);
+            jeu.AddSprite("Tuyau", new Size(100, 100), new Point(0, 0), images, 1, spSceneParam.Panel1);
         }
 
         private void pbxAjoutSprite_Click(object sender, EventArgs e)
@@ -134,18 +134,43 @@ namespace FlappySharp
 
         private void runToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //_spriteSelected.DemareAnimation();
-            //_spriteSelected.RotationImage();
+            frmPlateauJeu plateauJeu = new frmPlateauJeu();
+            //plateauJeu.Size = spSceneParam.Panel1.Size;
+            plateauJeu.Sprites = jeu.Sprites;
+            foreach (var sprite in plateauJeu.Sprites)
+            {
+                sprite.ActiverDesactiverEvenement(false);
+            }
+            
+            plateauJeu.ShowDialog();
+            foreach (var sprite in plateauJeu.Sprites)
+            {
+                sprite.ActiverDesactiverEvenement(true);
+            }
+            jeu.RefreshControl();
+        }
 
-            //string path = @"C:\Users\Dev\Desktop\Test";
-            // Permet de créer des dossier https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/file-system/how-to-create-a-file-or-folder
-            //Directory.CreateDirectory(path);
-            // Permet de supprimer un dossier https://docs.microsoft.com/en-us/dotnet/api/system.io.directory.delete?view=netcore-3.1
-            //Directory.Delete(path);
+        private void enregistrerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCreationProjet creationProjet = new frmCreationProjet();
+            if (creationProjet.ShowDialog() == DialogResult.OK)
+            {
+                jeu.CreationDossierProjet(creationProjet.GetCheminDossier(), creationProjet.GetNomProjet());
+            }
+            jeu.XMLSerialize();
+        }
 
+        private void ouvrirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ofdXml.ShowDialog() == DialogResult.OK)
+            {
+                jeu.CreateSpriteAfterDeserialize(spSceneParam.Panel1, ofdXml.FileName);
+            }
+        }
 
-            jeu.XMLDeserialize();
-            //jeu.XMLSerialize();
+        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

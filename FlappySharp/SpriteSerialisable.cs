@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FlappySharp
 {
-    class SpriteSerialisable
+    public class SpriteSerialisable
     {
         Point _position;
         Size _taille;

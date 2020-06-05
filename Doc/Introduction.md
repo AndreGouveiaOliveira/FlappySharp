@@ -192,3 +192,10 @@ Lien pour les images qui seront déjà dispo sur l'appli:
 https://www.pngfind.com/mpng/iRmmbbJ_flappy-bird-atlas-png-atlas-png-flappy-bird/
 
 Icon de l'appli : https://dlpng.com/png/6781141
+
+Lien:
+
+- permet de créer des dossier https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/file-system/how-to-create-a-file-or-folder
+
+- permet de supprimer un dossier https://docs.microsoft.com/en-us/dotnet/api/system.io.directory.delete?view=netcore-3.1
+              

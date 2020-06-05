@@ -29,6 +29,10 @@ namespace FlappySharp
         string _modificationZOrder;
         string _tagSprite;
         string _cheminDossierImage;
+        int _valeurFinal;
+        float _spriteVYMonte = 1f;
+        float _spriteVYDescend = 1f;
+        int _vitesseLateral = 1;
 
         public int Calque { get => _calque; private set => _calque = value; }
         public int ZOrder { get => _zOrder; set => _zOrder = value; }
@@ -39,6 +43,7 @@ namespace FlappySharp
         public int AngleRotation { get => _angleRotation; set => _angleRotation = value; }
         public Dictionary<string, Bitmap> Images { get => _images; set => _images = value; }
         public string CheminDossierImage { get => _cheminDossierImage; set => _cheminDossierImage = value; }
+        public Rectangle Collision { get => _collision; private set => _collision = value; }
 
         public Sprite(string nom, Size taille, Dictionary<string, Bitmap> images, int calque, int zOrder, Point position, Panel zoneScene)
         {
@@ -49,7 +54,7 @@ namespace FlappySharp
             base.Location = position;
             base.Image = images.Values.First();
 
-            _collision = new Rectangle(new Point(0,0), new Size(taille.Width - 1, taille.Height - 1));
+            Collision = new Rectangle(position, new Size(taille.Width - 1, taille.Height - 1));
             _tmp = new Timer();
 
             Images = images;
@@ -57,6 +62,7 @@ namespace FlappySharp
             ZOrder = zOrder;
             IntervalEntreImage = 1;
             _zoneScene = zoneScene;
+            _valeurFinal = base.Location.Y + 200;
 
             base.MouseDown += pbx_MouseDown;
             base.MouseMove += pbx_MouseMove;
@@ -81,14 +87,23 @@ namespace FlappySharp
         {
             _zoneScene.Controls.Remove(this);
             if (removeSprite)
+            {
                 this.Dispose();
+                // :TODO demander au prof comment faire ça 
+                //Directory.Delete(CheminDossierImage + @"\" + base.Name, true);F
+            }
+        }
+
+        public void AddControlPlateauJeu(frmPlateauJeu plateauJeu)
+        {
+            plateauJeu.Controls.Add(this);
         }
 
         //public void MonterZOrder()
         //{
         //    ModificationZOrder = "-";
         //}
-        
+
         //public void DescendreZOrder()
         //{
         //    ModificationZOrder = "+";
@@ -113,15 +128,79 @@ namespace FlappySharp
             _tmp.Enabled = !_tmp.Enabled;
         }
 
-        public void CreationDossier()
+        public void CreationDossier(string cheminDossier)
         {
-            Directory.CreateDirectory(CheminDossierImage);
-            foreach (var image in Images.Values)
+            CheminDossierImage = cheminDossier;
+            Directory.CreateDirectory(Path.Combine(cheminDossier, base.Name));
+            foreach (var image in Images)
             {
-                image.Save(CheminDossierImage);
+                Bitmap monImage = image.Value;
+                monImage.Save(Path.Combine(cheminDossier, base.Name) + @"\" + image.Key, monImage.RawFormat);
             }
         }
 
+        public void Deplacement()
+        {
+            switch (TagSprite)
+            {
+                case "Player":
+                    if (_valeurFinal < 0)
+                    {
+                        _valeurFinal = 0;
+                    }
+
+                    if (base.Location.Y > _valeurFinal)
+                    {
+                        _spriteVYDescend = 1f;
+                        base.Location = new Point(base.Location.X, base.Location.Y - (int)_spriteVYMonte);
+                        _spriteVYMonte += 0.08f;
+                    }
+                    else
+                    {
+                        _spriteVYMonte = 1f;
+                        _valeurFinal = base.Location.Y + 200;
+                        base.Location = new Point(base.Location.X, base.Location.Y + (int)_spriteVYDescend);
+                        _spriteVYDescend += 0.08f;
+                    }
+                    Collision = new Rectangle(base.Location, base.Size);
+                    break;
+
+                case "Ennemie":
+                    if (base.Location.X <= -base.Width)
+                    {
+                        base.Location = new Point(_zoneScene.Width, base.Location.Y);
+                    }
+                    else
+                    {
+                        base.Location = new Point(base.Location.X - _vitesseLateral, base.Location.Y);
+                    }
+                    Collision = new Rectangle(base.Location, base.Size);
+                    break;
+            }
+        }
+
+        public void ChangeValeurfinal(int valeurFinal)
+        {
+            _valeurFinal = this.Location.Y - valeurFinal;
+        }
+
+        public void ActiverDesactiverEvenement(bool activerEnement)
+        {
+            if (activerEnement)
+            {
+                base.MouseDown += pbx_MouseDown;
+                base.MouseMove += pbx_MouseMove;
+                base.MouseUp += pbx_MouseUp;
+                base.Click += pbx_Click;
+            }
+            else
+            {
+                base.MouseDown -= pbx_MouseDown;
+                base.MouseMove -= pbx_MouseMove;
+                base.MouseUp -= pbx_MouseUp;
+                base.Click -= pbx_Click;
+            }
+        }
 
         // :TODO essayer de faire fonctionner la rotation avec l'animation
         // Fonctionne sans l'annimation
@@ -175,7 +254,7 @@ namespace FlappySharp
             var c = sender as PictureBox;
             if (null == c) return;
             _dragging = false;
-            _collision = new Rectangle(new Point(0,0), base.Size);
+            Collision = new Rectangle(base.Location, base.Size);
         }
 
         private void pbx_MouseDown(object sender, MouseEventArgs e)
@@ -198,7 +277,7 @@ namespace FlappySharp
         {
             if (sender is Sprite)
             {
-                e.Graphics.DrawRectangle(Pens.Transparent, _collision);
+                e.Graphics.DrawRectangle(Pens.Black, Collision);
             }
         }
 
