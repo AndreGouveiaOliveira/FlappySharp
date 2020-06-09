@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPlateauJeu));
             this.tmp = new System.Windows.Forms.Timer(this.components);
             this.lblFps = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -54,9 +55,11 @@
             this.ClientSize = new System.Drawing.Size(734, 431);
             this.Controls.Add(this.lblFps);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmPlateauJeu";
-            this.Text = "frmPlateauJeu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Jeu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPlateauJeu_FormClosing);
             this.Load += new System.EventHandler(this.frmPlateauJeu_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmPlateauJeu_KeyDown);

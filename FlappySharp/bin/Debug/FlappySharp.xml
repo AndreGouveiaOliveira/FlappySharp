@@ -1,0 +1,581 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FlappySharp</name>
+    </assembly>
+    <members>
+        <member name="M:FlappySharp.frmCreationProjet.TextChanged(System.Object,System.EventArgs)">
+            <summary>
+            Active ou Desactive le button OK
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmCreationProjet.btnCheminDossier_Click(System.Object,System.EventArgs)">
+            <summary>
+            Recupere le chemin du dossier selectionner
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmCreationProjet.GetNomProjet">
+            <summary>
+            Retourne le nom du projet 
+            </summary>
+            <returns>Nom du projet</returns>
+        </member>
+        <member name="M:FlappySharp.frmCreationProjet.GetCheminDossier">
+            <summary>
+            Retourne le chemin du dossier
+            </summary>
+            <returns>Chemin du dossier</returns>
+        </member>
+        <member name="F:FlappySharp.frmCreationProjet.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FlappySharp.frmCreationProjet.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FlappySharp.frmCreationProjet.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FlappySharp.frmAjoutSprite.tbxName_TextChanged(System.Object,System.EventArgs)">
+            <summary>
+            Verifie si le champs est vide et change la valeur de la variable
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmAjoutSprite.tbxPosX_TextChanged(System.Object,System.EventArgs)">
+            <summary>
+            Verifie si le champs est vide et change la valeur de la variable
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmAjoutSprite.tbxPosY_TextChanged(System.Object,System.EventArgs)">
+            <summary>
+            Verifie si le champs est vide et change la valeur de la variable
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmAjoutSprite.tbxHauteur_TextChanged(System.Object,System.EventArgs)">
+            <summary>
+            Verifie si le champs est vide et change la valeur de la variable
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmAjoutSprite.tbxLargeur_TextChanged(System.Object,System.EventArgs)">
+            <summary>
+            Verifie si le champs est vide et change la valeur de la variable
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmAjoutSprite.tbxCalque_TextChanged(System.Object,System.EventArgs)">
+            <summary>
+            Verifie si le champs est vide et change la valeur de la variable
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmAjoutSprite.btnAjoutImage_Click(System.Object,System.EventArgs)">
+            <summary>
+            Ajoute dans la liste une image
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmAjoutSprite.VerifieNombre(System.Object,System.Windows.Forms.KeyPressEventArgs)">
+            <summary>
+            Verifie si le caractère est un chiffre
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmAjoutSprite.VerifieValeurVide">
+            <summary>
+            Verifie si les champs sont vide oui ou non et active le button ok en fonction
+            </summary>
+        </member>
+        <member name="M:FlappySharp.frmAjoutSprite.GetNom">
+            <summary>
+            Reourne le nom du Sprite
+            </summary>
+            <returns>Nom du Sprite</returns>
+        </member>
+        <member name="M:FlappySharp.frmAjoutSprite.GetCalque">
+            <summary>
+            Reourne le calque du Sprite
+            </summary>
+            <returns>Calque du Sprite</returns>
+        </member>
+        <member name="M:FlappySharp.frmAjoutSprite.GetPosition">
+            <summary>
+            Reourne la position du Sprite
+            </summary>
+            <returns>Position du Sprite</returns>
+        </member>
+        <member name="M:FlappySharp.frmAjoutSprite.GetTaille">
+            <summary>
+            Reourne la taille du Sprite
+            </summary>
+            <returns>Taille du Sprite</returns>
+        </member>
+        <member name="M:FlappySharp.frmAjoutSprite.GetImages">
+            <summary>
+            Reourne les images du Sprite
+            </summary>
+            <returns>Images du Sprite</returns>
+        </member>
+        <member name="F:FlappySharp.frmAjoutSprite.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FlappySharp.frmAjoutSprite.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FlappySharp.frmAjoutSprite.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FlappySharp.frmMain.pbxAjoutFlappy_Click(System.Object,System.EventArgs)">
+            <summary>
+            Crée un Sprite par défaut
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmMain.pbxAjoutFond_Click(System.Object,System.EventArgs)">
+            <summary>
+            Crée un Sprite par défaut
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmMain.pbxAjoutSol_Click(System.Object,System.EventArgs)">
+            <summary>
+            Crée un Sprite par défaut
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmMain.pbxAjoutTuyau_Click(System.Object,System.EventArgs)">
+            <summary>
+            Crée un Sprite par défaut
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmMain.pbxAjoutSprite_Click(System.Object,System.EventArgs)">
+            <summary>
+            Crée un Sprite par rapport au valeur choisie par l'utilisateur
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmMain.btnUpZOrder_Click(System.Object,System.EventArgs)">
+            <summary>
+            Diminue le ZOrder de 1
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmMain.btnDownZOrder_Click(System.Object,System.EventArgs)">
+            <summary>
+            Augemente le ZOrder de 1
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmMain.btnSauveModif_Click(System.Object,System.EventArgs)">
+            <summary>
+            Sauvegarde les modifications apporter au Sprite
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmMain.btnSupr_Click(System.Object,System.EventArgs)">
+            <summary>
+            Supprime le Sprite et met a vide tout les champs des Sprites
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmMain.tmp_Tick(System.Object,System.EventArgs)">
+            <summary>
+            Verifie si le sprite selectionner à changer et met les valeurs dans les champs du Sprite
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmMain.runToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            Ouvre la forme pour jouer au jeu 2D
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmMain.enregistrerToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            Fait l'enregistrement des Sprites
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmMain.ouvrirToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            Ouvre le chiffier xml pour crée les Sprite
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmMain.quitterToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            Ferme l'application
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:FlappySharp.frmMain.components">
+            <summary>
+            Variable nécessaire au concepteur.
+            </summary>
+        </member>
+        <member name="M:FlappySharp.frmMain.Dispose(System.Boolean)">
+            <summary>
+            Nettoyage des ressources utilisées.
+            </summary>
+            <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
+        </member>
+        <member name="M:FlappySharp.frmMain.InitializeComponent">
+            <summary>
+            Méthode requise pour la prise en charge du concepteur - ne modifiez pas
+            le contenu de cette méthode avec l'éditeur de code.
+            </summary>
+        </member>
+        <member name="M:FlappySharp.frmPlateauJeu.frmPlateauJeu_Load(System.Object,System.EventArgs)">
+            <summary>
+            Ajoute les Sprites dans les controls de la forme et demare l'animation des Sprite
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmPlateauJeu.tmp_Tick(System.Object,System.EventArgs)">
+            <summary>
+            Check la collision entre Sprites
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmPlateauJeu.frmPlateauJeu_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
+            <summary>
+            Arrete l'annimation
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.frmPlateauJeu.CheckCollision">
+            <summary>
+            Regarde la collision entre les Sprites
+            </summary>
+        </member>
+        <member name="M:FlappySharp.frmPlateauJeu.frmPlateauJeu_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Quand le button up est appuyé le player saute
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:FlappySharp.frmPlateauJeu.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FlappySharp.frmPlateauJeu.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FlappySharp.frmPlateauJeu.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FlappySharp.Jeu.AddSprite(System.String,System.Drawing.Size,System.Drawing.Point,System.Collections.Generic.Dictionary{System.String,System.Drawing.Bitmap},System.Int32,System.Windows.Forms.Panel)">
+            <summary>
+            Crée un nouveau Sprite et ajoute dans la liste des Sprites
+            </summary>
+            <param name="nom"></param>
+            <param name="taille"></param>
+            <param name="position"></param>
+            <param name="images"></param>
+            <param name="calque"></param>
+            <param name="panelScene"></param>
+        </member>
+        <member name="M:FlappySharp.Jeu.RefreshControl">
+            <summary>
+            Met à jour l'affichage des Sprites
+            </summary>
+        </member>
+        <member name="M:FlappySharp.Jeu.ModifZOrder(FlappySharp.Sprite)">
+            <summary>
+            Change le zOrder du Sprite
+            </summary>
+            <param name="spriteZOrderChanger">Le sprite dont le zOrder à changer</param>
+        </member>
+        <member name="M:FlappySharp.Jeu.UpdateValueSpriteSelected(System.String,System.Drawing.Size,System.Drawing.Point,System.Collections.Generic.Dictionary{System.String,System.Drawing.Bitmap},System.Int32,System.Int32,System.Int32,System.String,System.Int32)">
+            <summary>
+            Met à jour les valeurs du sprite selectionner
+            </summary>
+            <param name="nom"></param>
+            <param name="size"></param>
+            <param name="location"></param>
+            <param name="images"></param>
+            <param name="intervalImage"></param>
+            <param name="calque"></param>
+            <param name="zOrder"></param>
+            <param name="tag"></param>
+            <param name="rotation"></param>
+        </member>
+        <member name="M:FlappySharp.Jeu.GetValueSpriteSelected">
+            <summary>
+            Récupère les données du Sprite selectionner
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FlappySharp.Jeu.CheckNomExist(System.String)">
+            <summary>
+            Permet de vérifier si le nom du Sprite qu'on ajoute existe
+            </summary>
+            <param name="checkNomSprite">Le nom du sprite à verifier</param>
+            <returns></returns>
+        </member>
+        <member name="M:FlappySharp.Jeu.XMLSerialize">
+            <summary>
+            Transforme la liste de sprite en liste de spirteSerialisable et serialise la liste de spriteSerialisable
+            </summary>
+        </member>
+        <member name="M:FlappySharp.Jeu.CreateSpriteAfterDeserialize(System.Windows.Forms.Panel,System.String)">
+            <summary>
+            Transforme la liste de spriteSerialisable en liste de sprite
+            </summary>
+            <param name="panel"></param>
+            <param name="cheminXml"></param>
+        </member>
+        <member name="M:FlappySharp.Jeu.XMLDeserialize(System.String)">
+            <summary>
+            Deserialise le fichier
+            </summary>
+            <param name="cheminXml"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FlappySharp.Program.Main">
+            <summary>
+            Point d'entrée principal de l'application.
+            </summary>
+        </member>
+        <member name="M:FlappySharp.Sprite.AjoutControlPanel">
+            <summary>
+            Permet d'ajouter le Sprite dans les controls du Panel
+            </summary>
+        </member>
+        <member name="M:FlappySharp.Sprite.SuprControlPanel(System.Boolean)">
+            <summary>
+            Supprime le Sprite des controls ou totalement
+            </summary>
+            <param name="removeSprite">Definie s'il faut supprimer définitivement le Sprites</param>
+        </member>
+        <member name="M:FlappySharp.Sprite.AjoutControlPlateauJeu(FlappySharp.frmPlateauJeu)">
+            <summary>
+            Ajoute dans le control de la forme frmSceneJeu le Sprite
+            </summary>
+            <param name="plateauJeu">la forme où on ajoute les Sprites</param>
+        </member>
+        <member name="M:FlappySharp.Sprite.UpdateValue(System.String,System.Drawing.Size,System.Drawing.Point,System.Collections.Generic.Dictionary{System.String,System.Drawing.Bitmap},System.Int32,System.Int32,System.Int32,System.String,System.Int32)">
+            <summary>
+            Met à jour les données du Sprite
+            </summary>
+            <param name="nom"></param>
+            <param name="taille"></param>
+            <param name="position"></param>
+            <param name="image"></param>
+            <param name="intervalImage"></param>
+            <param name="calque"></param>
+            <param name="zOrder"></param>
+            <param name="tag"></param>
+            <param name="rotation"></param>
+        </member>
+        <member name="M:FlappySharp.Sprite.DemareAnimation">
+            <summary>
+            Change le Enable du timer pour lancer l'animation
+            </summary>
+        </member>
+        <member name="M:FlappySharp.Sprite.CreationDossier(System.String)">
+            <summary>
+            Crée un dossier pour le Sprite et enregistre les images du Sprite dans le dossier
+            </summary>
+            <param name="cheminDossier">chemin du dossier où on enregistre les images</param>
+        </member>
+        <member name="M:FlappySharp.Sprite.Deplacement">
+            <summary>
+            Les Mouvement des Sprites avec "Player" et "Ennemie"
+            </summary>
+        </member>
+        <member name="M:FlappySharp.Sprite.ChangePositionFinal(System.Int32)">
+            <summary>
+             Calcule la position final pour le déplacement
+            </summary>
+            <param name="valeurFinal"></param>
+        </member>
+        <member name="M:FlappySharp.Sprite.ActiverDesactiverEvenement(System.Boolean)">
+            <summary>
+            Active les évents des Sprites
+            </summary>
+            <param name="activerEnement">Dit s'il faut activer ou desactiver les évents</param>
+        </member>
+        <member name="M:FlappySharp.Sprite.RotateImage(System.Drawing.Image,System.Single)">
+            <summary>
+            Fait appelle à la méthode Rotation pour rotate l'image
+            </summary>
+            <param name="image">l'image à rotate</param>
+            <param name="angle">l'angle de rotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:FlappySharp.Sprite.Rotation(System.Drawing.Image,System.Drawing.PointF,System.Single)">
+            <summary>
+            Fait la rotation de l'image
+            </summary>
+            <param name="image">l'image a rotate</param>
+            <param name="pointRotation">l'endroit ou on fait la rotation</param>
+            <param name="angle">l'angle de rotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:FlappySharp.Sprite.pbx_MouseUp(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Change la variable dragging et crée un nouveau rectangle pour la collision 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.Sprite.pbx_MouseDown(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Change la variable dragging et xPos et yPos
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.Sprite.pbx_MouseMove(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Change la valeur la valeur de la position du Sprite
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.Sprite.pbx_Paint(System.Object,System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Dessine le rectangle autour du Sprite pour la collision
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.Sprite.pbx_Click(System.Object,System.EventArgs)">
+            <summary>
+            Change variable selected
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.Sprite.tmp_Tick(System.Object,System.EventArgs)">
+            <summary>
+            Fait l'annimation du Sprite
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlappySharp.SpriteSerialisable.SetValue(System.Collections.Generic.List{System.String},System.String,System.String,System.Drawing.Point,System.Drawing.Size,System.Int32,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Met les valeur à jour
+            </summary>
+            <param name="nomImages"></param>
+            <param name="cheminDossier"></param>
+            <param name="nom"></param>
+            <param name="position"></param>
+            <param name="taille"></param>
+            <param name="calque"></param>
+            <param name="zOrder"></param>
+            <param name="intervalEntreImage"></param>
+            <param name="angleRotation"></param>
+            <param name="tagSprite"></param>
+        </member>
+        <member name="T:FlappySharp.Properties.Resources">
+            <summary>
+              Une classe de ressource fortement typée destinée, entre autres, à la consultation des chaînes localisées.
+            </summary>
+        </member>
+        <member name="P:FlappySharp.Properties.Resources.ResourceManager">
+            <summary>
+              Retourne l'instance ResourceManager mise en cache utilisée par cette classe.
+            </summary>
+        </member>
+        <member name="P:FlappySharp.Properties.Resources.Culture">
+            <summary>
+              Remplace la propriété CurrentUICulture du thread actuel pour toutes
+              les recherches de ressources à l'aide de cette classe de ressource fortement typée.
+            </summary>
+        </member>
+        <member name="P:FlappySharp.Properties.Resources.add">
+            <summary>
+              Recherche une ressource localisée de type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:FlappySharp.Properties.Resources.Flappy_1">
+            <summary>
+              Recherche une ressource localisée de type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:FlappySharp.Properties.Resources.Flappy_2">
+            <summary>
+              Recherche une ressource localisée de type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:FlappySharp.Properties.Resources.Flappy_3">
+            <summary>
+              Recherche une ressource localisée de type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:FlappySharp.Properties.Resources.Fond">
+            <summary>
+              Recherche une ressource localisée de type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:FlappySharp.Properties.Resources.Sol">
+            <summary>
+              Recherche une ressource localisée de type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:FlappySharp.Properties.Resources.Tuyau">
+            <summary>
+              Recherche une ressource localisée de type System.Drawing.Bitmap.
+            </summary>
+        </member>
+    </members>
+</doc>

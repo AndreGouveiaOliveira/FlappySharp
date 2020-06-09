@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*
+ * Auteur       : André Gouveia de Oliveira
+ * Professeur   : M. Pascal BONVIN
+ * Experts      : M. Robin BOUILLE et M. Borys FOLOWMIETOW
+ * Date         : 08 Juin 2020
+ * Mandant      : CFPT-Informatique, Genève, Petit-Lancy
+ * Projet       : FlappySharp
+ * Version      : 1.0
+ * Description  : Editeur de Jeu 2D développé dans le cadre d'un TPI de de CFC à l'école d'informatique de Genève.
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,6 +38,11 @@ namespace FlappySharp
             _taille = new Size(0, 0);
         }
 
+        /// <summary>
+        /// Verifie si le champs est vide et change la valeur de la variable
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tbxName_TextChanged(object sender, EventArgs e)
         {
             if (tbxName.Text != string.Empty)
@@ -34,6 +50,11 @@ namespace FlappySharp
             VerifieValeurVide();
         }
 
+        /// <summary>
+        /// Verifie si le champs est vide et change la valeur de la variable
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tbxPosX_TextChanged(object sender, EventArgs e)
         {
             if (tbxPosX.Text != string.Empty)
@@ -41,6 +62,11 @@ namespace FlappySharp
             VerifieValeurVide();
         }
 
+        /// <summary>
+        /// Verifie si le champs est vide et change la valeur de la variable
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tbxPosY_TextChanged(object sender, EventArgs e)
         {
             if (tbxPosY.Text != string.Empty)
@@ -48,6 +74,11 @@ namespace FlappySharp
             VerifieValeurVide();
         }
 
+        /// <summary>
+        /// Verifie si le champs est vide et change la valeur de la variable
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tbxHauteur_TextChanged(object sender, EventArgs e)
         {
             if (tbxHauteur.Text != string.Empty)
@@ -55,6 +86,11 @@ namespace FlappySharp
             VerifieValeurVide();
         }
 
+        /// <summary>
+        /// Verifie si le champs est vide et change la valeur de la variable
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tbxLargeur_TextChanged(object sender, EventArgs e)
         {
             if (tbxLargeur.Text != string.Empty)
@@ -62,6 +98,11 @@ namespace FlappySharp
             VerifieValeurVide();
         }
 
+        /// <summary>
+        /// Verifie si le champs est vide et change la valeur de la variable
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tbxCalque_TextChanged(object sender, EventArgs e)
         {
             if (tbxCalque.Text != string.Empty)
@@ -69,8 +110,12 @@ namespace FlappySharp
             VerifieValeurVide();
         }
 
-        // trouver ce bout de code sur https://www.aspsnippets.com/Articles/Windows-Forms-WinForms-OpenFileDialog-Box-Tutorial-with-example-in-C-and-VBNet.aspx#:~:text=In%20order%20to%20select%20a%20Multiple%20Files%2C%20the%20Multiselect%20property,in%20the%20Windows%20Forms%20MessageBox.
-        private void btnAjoutImage_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Ajoute dans la liste une image
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+         private void btnAjoutImage_Click(object sender, EventArgs e)
         {
             if (lfd.ShowDialog() == DialogResult.OK)
             {
@@ -83,6 +128,11 @@ namespace FlappySharp
             VerifieValeurVide();
         }
 
+        /// <summary>
+        /// Verifie si le caractère est un chiffre
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void VerifieNombre(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -91,6 +141,9 @@ namespace FlappySharp
             }
         }
 
+        /// <summary>
+        /// Verifie si les champs sont vide oui ou non et active le button ok en fonction
+        /// </summary>
         private void VerifieValeurVide()
         {
             if (tbxName.Text == string.Empty || tbxPosX.Text == string.Empty || tbxPosY.Text == string.Empty || tbxLargeur.Text == string.Empty || tbxHauteur.Text == string.Empty || tbxCalque.Text == string.Empty || lbxImage.Items.Count == 0)
@@ -103,26 +156,46 @@ namespace FlappySharp
             }
         }
 
+        /// <summary>
+        /// Reourne le nom du Sprite
+        /// </summary>
+        /// <returns>Nom du Sprite</returns>
         public string GetNom()
         {
             return _nom;
         }
 
+        /// <summary>
+        /// Reourne le calque du Sprite
+        /// </summary>
+        /// <returns>Calque du Sprite</returns>
         public int GetCalque()
         {
             return _calque;
         }
 
+        /// <summary>
+        /// Reourne la position du Sprite
+        /// </summary>
+        /// <returns>Position du Sprite</returns>
         public Point GetPosition()
         {
             return _position;
         }
 
+        /// <summary>
+        /// Reourne la taille du Sprite
+        /// </summary>
+        /// <returns>Taille du Sprite</returns>
         public Size GetTaille()
         {
             return _taille;
         }
 
+        /// <summary>
+        /// Reourne les images du Sprite
+        /// </summary>
+        /// <returns>Images du Sprite</returns>
         public Dictionary<string,Bitmap> GetImages()
         {
             return _images;

@@ -542,6 +542,10 @@
             this.tmp.Interval = 1000;
             this.tmp.Tick += new System.EventHandler(this.tmp_Tick);
             // 
+            // ofdXml
+            // 
+            this.ofdXml.Filter = "XML Files (*.xml)|*.xml";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -554,6 +558,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FlappySharp";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

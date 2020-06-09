@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*
+ * Auteur       : André Gouveia de Oliveira
+ * Professeur   : M. Pascal BONVIN
+ * Experts      : M. Robin BOUILLE et M. Borys FOLOWMIETOW
+ * Date         : 08 Juin 2020
+ * Mandant      : CFPT-Informatique, Genève, Petit-Lancy
+ * Projet       : FlappySharp
+ * Version      : 1.0
+ * Description  : Editeur de Jeu 2D développé dans le cadre d'un TPI de de CFC à l'école d'informatique de Genève.
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -31,6 +42,15 @@ namespace FlappySharp
             _spriteSerialisables = new List<SpriteSerialisable>();
         }
 
+        /// <summary>
+        /// Crée un nouveau Sprite et ajoute dans la liste des Sprites
+        /// </summary>
+        /// <param name="nom"></param>
+        /// <param name="taille"></param>
+        /// <param name="position"></param>
+        /// <param name="images"></param>
+        /// <param name="calque"></param>
+        /// <param name="panelScene"></param>
         public void AddSprite(string nom, Size taille, Point position, Dictionary<string, Bitmap> images, int calque, Panel panelScene)
         {
             int zOrder = 0;
@@ -46,6 +66,9 @@ namespace FlappySharp
             RefreshControl();
         }
 
+        /// <summary>
+        /// Met à jour l'affichage des Sprites
+        /// </summary>
         public void RefreshControl()
         {
             Sprites.ForEach(sprite => sprite.SuprControlPanel(false));
@@ -55,6 +78,10 @@ namespace FlappySharp
             Sprites.ForEach(sprite => sprite.AjoutControlPanel());
         }
 
+        /// <summary>
+        /// Change le zOrder du Sprite
+        /// </summary>
+        /// <param name="spriteZOrderChanger">Le sprite dont le zOrder à changer</param>
         private void ModifZOrder(Sprite spriteZOrderChanger)
         {
             if (Sprites.Count != 0)
@@ -79,6 +106,18 @@ namespace FlappySharp
             RefreshControl();
         }
 
+        /// <summary>
+        /// Met à jour les valeurs du sprite selectionner
+        /// </summary>
+        /// <param name="nom"></param>
+        /// <param name="size"></param>
+        /// <param name="location"></param>
+        /// <param name="images"></param>
+        /// <param name="intervalImage"></param>
+        /// <param name="calque"></param>
+        /// <param name="zOrder"></param>
+        /// <param name="tag"></param>
+        /// <param name="rotation"></param>
         public void UpdateValueSpriteSelected(string nom, Size size, Point location, Dictionary<string, Bitmap> images, int intervalImage, int calque, int zOrder, string tag, int rotation)
         {
             if (_spriteSelected.Calque == calque)
@@ -86,7 +125,6 @@ namespace FlappySharp
                 if (_spriteSelected.ZOrder < _spriteSelected.ZOrder + zOrder)
                 {
                     _spriteSelected.UpdateValue(nom, size, location, images, intervalImage, calque, _spriteSelected.ZOrder + zOrder, tag, rotation);
-                    //_spriteSelected.DescendreZOrder();
                     _spriteSelected.ModificationZOrder = "+";
                     ModifZOrder(_spriteSelected);
                 }
@@ -94,7 +132,6 @@ namespace FlappySharp
                 if (_spriteSelected.ZOrder > _spriteSelected.ZOrder + zOrder)
                 {
                     _spriteSelected.UpdateValue(nom, size, location, images, intervalImage, calque, _spriteSelected.ZOrder + zOrder, tag, rotation);
-                    //_spriteSelected.MonterZOrder();
                     _spriteSelected.ModificationZOrder = "-";
                     ModifZOrder(_spriteSelected);
                 }
@@ -102,6 +139,8 @@ namespace FlappySharp
                 if (_spriteSelected.ZOrder == _spriteSelected.ZOrder + zOrder)
                 {
                     _spriteSelected.UpdateValue(nom, size, location, images, intervalImage, calque, zOrder, tag, rotation);
+
+                    RefreshControl();
                 }
             }
             else
@@ -119,6 +158,10 @@ namespace FlappySharp
             }
         }
 
+        /// <summary>
+        /// Récupère les données du Sprite selectionner
+        /// </summary>
+        /// <returns></returns>
         public Sprite GetValueSpriteSelected()
         {
             foreach (var sprite in Sprites)
@@ -164,6 +207,9 @@ namespace FlappySharp
             }
         }
 
+        /// <summary>
+        /// Transforme la liste de sprite en liste de spirteSerialisable et serialise la liste de spriteSerialisable
+        /// </summary>
         public void XMLSerialize()
         {
             foreach (var sprite in Sprites)
@@ -181,12 +227,47 @@ namespace FlappySharp
 
                 _spriteSerialisables.Add(spriteSerialise);
             }
-            Stream stream = File.Open(Path.Combine(CheminDossierProjet, NomProjet + @"\" + NomProjet + ".xml"), FileMode.Create);
+
+            Stream stream = File.Open(Path.Combine(CheminDossierProjet, Path.Combine(NomProjet, NomProjet + ".xml")), FileMode.Create);
             XmlSerializer formatter = new XmlSerializer(typeof(List<SpriteSerialisable>));
             formatter.Serialize(stream, _spriteSerialisables);
             stream.Close();
         }
 
+        /// <summary>
+        /// Transforme la liste de spriteSerialisable en liste de sprite
+        /// </summary>
+        /// <param name="panel"></param>
+        /// <param name="cheminXml"></param>
+        public void CreateSpriteAfterDeserialize(Panel panel, string cheminXml)
+        {
+            _spriteSerialisables.Clear();
+            foreach (var sprite in Sprites)
+            {
+                sprite.SuprControlPanel(true);
+            }
+            Dictionary<string, Bitmap> images;
+            _spriteSerialisables = XMLDeserialize(cheminXml);
+            foreach (var spriteSerialize in _spriteSerialisables)
+            {
+                _cheminDossierProjet = spriteSerialize.CheminDossier;
+                images = new Dictionary<string, Bitmap>();
+
+                foreach (var nomImage in spriteSerialize.NomImages)
+                {
+                    images.Add(nomImage, new Bitmap(Path.Combine(spriteSerialize.CheminDossier, Path.Combine(spriteSerialize.Nom, nomImage))));
+                }
+
+                Sprites.Add(new Sprite(spriteSerialize.Nom, spriteSerialize.Taille, images, spriteSerialize.Calque, spriteSerialize.ZOrder, spriteSerialize.Position, panel));
+            }
+            RefreshControl();
+        }
+
+        /// <summary>
+        /// Deserialise le fichier
+        /// </summary>
+        /// <param name="cheminXml"></param>
+        /// <returns></returns>
         public List<SpriteSerialisable> XMLDeserialize(string cheminXml)
         {
             Stream stream = File.Open(cheminXml, FileMode.Open);
@@ -194,34 +275,6 @@ namespace FlappySharp
             List<SpriteSerialisable> obj = (List<SpriteSerialisable>)formatter.Deserialize(stream);
             stream.Close();
             return obj;
-        }
-
-        public void CreateSpriteAfterDeserialize(Panel panel, string cheminXml)
-        {
-            Dictionary<string, Bitmap> images;
-            _spriteSerialisables = XMLDeserialize(cheminXml);
-            foreach (var spriteSerialize in _spriteSerialisables)
-            {
-                images = new Dictionary<string, Bitmap>();
-
-                foreach (var nomImage in spriteSerialize.NomImages)
-                {
-                    images.Add(nomImage, new Bitmap(spriteSerialize.CheminDossier + @"\"+ spriteSerialize.Nom + @"\" +nomImage));
-                }
-
-                Sprites.Add(new Sprite(spriteSerialize.Nom, spriteSerialize.Taille, images, spriteSerialize.Calque, spriteSerialize.ZOrder, spriteSerialize.Position, panel));
-
-                foreach (var sprite in Sprites)
-                {
-                    if (spriteSerialize.Nom == sprite.Name)
-                    {
-                        sprite.UpdateValue(spriteSerialize.Nom, spriteSerialize.Taille, spriteSerialize.Position, images, spriteSerialize.IntervalEntreImage, spriteSerialize.Calque, spriteSerialize.ZOrder, spriteSerialize.TagSprite, spriteSerialize.AngleRotation);
-                    }
-                    sprite.CheminDossierImage = spriteSerialize.CheminDossier;
-                }
-                _cheminDossierProjet = spriteSerialize.CheminDossier;
-            }
-            RefreshControl();
         }
     }
 }

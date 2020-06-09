@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*
+ * Auteur       : André Gouveia de Oliveira
+ * Professeur   : M. Pascal BONVIN
+ * Experts      : M. Robin BOUILLE et M. Borys FOLOWMIETOW
+ * Date         : 08 Juin 2020
+ * Mandant      : CFPT-Informatique, Genève, Petit-Lancy
+ * Projet       : FlappySharp
+ * Version      : 1.0
+ * Description  : Editeur de Jeu 2D développé dans le cadre d'un TPI de de CFC à l'école d'informatique de Genève.
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -36,6 +47,19 @@ namespace FlappySharp
 
         }
 
+        /// <summary>
+        /// Met les valeur à jour
+        /// </summary>
+        /// <param name="nomImages"></param>
+        /// <param name="cheminDossier"></param>
+        /// <param name="nom"></param>
+        /// <param name="position"></param>
+        /// <param name="taille"></param>
+        /// <param name="calque"></param>
+        /// <param name="zOrder"></param>
+        /// <param name="intervalEntreImage"></param>
+        /// <param name="angleRotation"></param>
+        /// <param name="tagSprite"></param>
         public void SetValue(List<string> nomImages, string cheminDossier, string nom, Point position, Size taille, int calque, int zOrder, int intervalEntreImage, int angleRotation, string tagSprite)
         {
             Position = position;

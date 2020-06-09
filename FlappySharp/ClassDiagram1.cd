@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FlappySharp.frmAjoutSprite">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABCABAAIBCACARAABBKAAAcSBAggBAAYgBAAgAAFAKA=</HashCode>
+      <FileName>frmAjoutSprite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FlappySharp.frmCreationProjet">
+    <Position X="4.25" Y="5.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAEABAACAAQDAEAACAAEECAAAQBAAAAAAQAAAAAAA=</HashCode>
+      <FileName>frmCreationProjet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FlappySharp.frmMain">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>cQjVRAkADiCDABZJIAKCAIMDFECCAQkAACADQAoJEAA=</HashCode>
+      <FileName>frmMain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FlappySharp.frmPlateauJeu">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QQIAAAAAACDAAAAAAACAQAAKAAAAAACAAIAAAAAAAAA=</HashCode>
+      <FileName>frmPlateauJeu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FlappySharp.Jeu">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ggIIAAABgECAAAAABAABUAAAAAAAAAEEAIAiAgAAAAA=</HashCode>
+      <FileName>Jeu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FlappySharp.Program" Collapsed="true">
+    <Position X="14.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FlappySharp.Sprite">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>SWBgBCsQgJAmGqAAQAABIAAAAAiCABEAQIgIDEIAIAI=</HashCode>
+      <FileName>Sprite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FlappySharp.SpriteSerialisable">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAABAAQABAgAiAgAAAIAACABCACAAAAgIEIgEYAAAA=</HashCode>
+      <FileName>SpriteSerialisable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FlappySharp.Properties.Resources" Collapsed="true">
+    <Position X="14.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAASAQAIAQAABAAAAgACAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FlappySharp.Properties.Settings" Collapsed="true">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
